@@ -1,0 +1,67 @@
+
+function doPost(e) {
+  try {
+    if (!e || !e.parameter) {
+      return ContentService.createTextOutput("لا توجد بيانات مستلمة")
+        .setMimeType(ContentService.MimeType.TEXT);
+    }
+
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var sheet = ss.getActiveSheet();
+
+    // تأكيد الهيدر + تجميد الصف الأول + تنسيق التاريخ
+    ensureHeaders_(sheet);
+    sheet.setFrozenRows(1);
+    sheet.getRange("H:H").setNumberFormat("dd/MM/yyyy HH:mm"); // تنسيق التاريخ
+
+    // إضافة الصف الجديد
+    sheet.appendRow([
+      e.parameter.Email || "",
+      e.parameter.Name || "",
+      e.parameter.Address || "",
+      e.parameter.Phone || "",
+      e.parameter.Items || "",
+      e.parameter.Total_Price || "",
+      e.parameter.Count_Items || "",
+      new Date() // التاريخ الفعلي كقيمة Date
+    ]);
+
+    return ContentService.createTextOutput("تم الحفظ");
+  } catch (err) {
+    return ContentService.createTextOutput("خطأ: " + err)
+      .setMimeType(ContentService.MimeType.TEXT);
+  }
+}
+
+/**
+ * يضمن وجود رؤوس الأعمدة في الصف 1 بدون ما يمسح أي داتا موجودة.
+ * لو الصف 1 فاضي يكتب كل الهيدرات،
+ * ولو موجود يضمن بس أن H1 مكتوب فيها "التاريخ".
+ */
+function ensureHeaders_(sheet) {
+  var headers = [
+    "البريد الإلكتروني",
+    "الاسم",
+    "العنوان",
+    "الهاتف",
+    "العناصر",
+    "إجمالي السعر",
+    "عدد العناصر",
+    "التاريخ"
+  ];
+
+  // هل الصف الأول كله فاضي؟
+  var range = sheet.getRange(1, 1, 1, headers.length);
+  var current = range.getValues()[0];
+  var allBlank = current.every(function (c) { return c === "" });
+
+  if (allBlank) {
+    range.setValues([headers]);
+  } else {
+    // لو عمود التاريخ ملهوش عنوان، نحطه بس من غير ما نغير الباقي
+    var dateHeader = sheet.getRange(1, 8).getValue();
+    if (!dateHeader || ("" + dateHeader).trim() === "") {
+      sheet.getRange(1, 8).setValue("التاريخ");
+    }
+  }
+}
