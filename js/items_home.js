@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // Json File => "Products"
 fetch('products.json')
 .then((resolve) => resolve.json())
@@ -158,7 +157,6 @@ fetch('products.json')
     }
 )});
 
-=======
 // Json File => "Products"
 fetch('products.json')
 .then((resolve) => resolve.json())
@@ -317,6 +315,3 @@ fetch('products.json')
         }
     }
 )});
-
->>>>>>> b1056237548f5fb9fe250f991869a698858d8afa
-// window.localStorage.clear();
