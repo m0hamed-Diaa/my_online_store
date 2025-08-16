@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -286,4 +287,294 @@
 
     <script src=".//js/script.js"></script>
     <script src=".//js/submit_checkout.js"></script>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed | Checkout</title>
+    <link rel="icon" href=".//css/img/icon.png">
+    <link rel="stylesheet" href=".//css/main.css">
+    <link rel="stylesheet" href=".//css/all.min.css">
+    <script>
+        (function() {
+            let darkPref = localStorage.getItem("dark");
+
+            // منع تأثير إعدادات الجهاز
+            document.documentElement.style.colorScheme = "light dark";
+
+            if (darkPref === "done") {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+        })();
+    </script>
+</head>
+<body>
+    <!-- Start Button To Top  -->
+    <a href="#" class="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    <!-- End Button To Top  -->
+    <div class="big_cart_item">
+        <div class="top_cart">
+            <h3>Cart Item : <span class="count_item_cart">0</span></h3>
+            <span class="colse_item" id="colse_item_all_incart"><i class="fa-regular fa-circle-xmark"></i></span>
+        </div>
+        <div class="items_in_cart" id="cart_items">
+
+        </div>
+        <div class="bottom_cart">
+            <div class="total">
+                <p>Subtotal</p>
+                <p class="price_cart_total">$0</p>
+            </div>
+            <div class="button_cart">
+                <a href="checkout.html" class="btn_cart">Checkout</a>
+                <span onclick="open_cart_items()" class="btn_cart trans_bg">Shop More</span>
+            </div>
+        </div>
+    </div>
+    <!-- Start Header -->
+    <header>
+        <div class="top-header">
+            <div class="container">
+                <div aria-pressed="false" id="dark-mode">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                </div>
+                <div class="logo">
+                    <a href="#" class="logo">
+                        <img src=".//css/img/icon.png" alt="">
+                        <h4>Mohamed <br><span>Online Store</span></h4>
+                    </a>
+                </div>
+                <form action="" class="search-box">
+                    <div class="select-box">
+                        <select id="category" name="category">
+                            <option value="All Categories" selected>All Categories</option>
+                            <option value="Electronics & Digita">Electronics & Digita</option>
+                            <option value="Phones & Tablety">Phones & Tablety</option>
+                            <option value="Fashion & Clothings">Fashion & Clothings</option>
+                            <option value="Jewelry & Watches">Jewelry & Watches</option>
+                            <option value="Washing Machine">Washing Machine</option>
+                            <option value="Toys & Hobbies">Toys & Hobbies</option>
+                        </select>
+                    </div>
+                    <input type="text" name="search" id="search" placeholder="Search For Products">
+                    <button type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+                <div class="header-icons">
+                    <div class="icon">
+                        <a href="#">
+                            <i class="fa-regular fa-heart"></i>
+                            <span class="count count_favourite">0</span>
+                        </a>
+                    </div>
+                    <div onclick="open_cart_items()"  class="icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="count count-item_header">0</span>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="bottom-header">
+            <div class="container">
+                <nav class="nav">
+                    <div class="category_nav">
+                        <div class="category_btn">
+                            <i class="fa-solid fa-bars"></i>
+                            <p>Browse Category</p>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </div>
+                        <div class="category_nav_list">
+                            <a href="#">Top 10 Offers</a>
+                            <a href="#">Electronics & Digita</a>
+                            <a href="#">Phones & Tablety</a>
+                            <a href="#">Fashion & Clothings</a>
+                            <a href="#">Telivsion & Moniter</a>
+                            <a href="#">Jewelry & Watches</a>
+                            <a href="#">Toys & Hobbies</a>
+                        </div>
+                    </div>
+                    <i class="fa-solid icon_nav_links fa-bars"></i>
+                    <ul class="nav_links">
+                        
+                        <li class="active">
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li>
+                            <a href="#">Accesories</a>
+                        </li>
+                        <li>
+                            <a href="#">Blog</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="login_signup btns">
+                    <a href="#" class="btn">Login <i class="fa-solid fa-right-to-bracket"></i></a>
+                    <a href="#" class="btn">Sign up <i class="fa-solid fa-user-plus"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Header -->
+    <!-- Start Checkout -->
+    <section class="checkout">
+        <form id="form_contact" method="post" action="https://script.google.com/macros/s/AKfycbzJSzH_49lgbquPt7RII5gCzsDoXLC3cNpMfQw0WA1IV9yz49icevVg60Es1aBy0GqH/exec">
+            <input type="hidden" id="all_items" name="Items">
+            <input type="hidden" id="total_price" name="Total_Price">
+            <input type="hidden" id="count_items" name="Count_Items">
+            <div class="container">
+                <div class="first_info">
+                    <h2>Order Summary</h2>
+                    <div class="items" id="items_checkout">
+                        
+                    </div>
+                    <div class="button_info_cart">
+                        <div class="details">
+                            <h4>Subtotal:</h4>
+                            <span class="price_cart_total_checkout">$0</span>
+                        </div>
+                        <div class="details">
+                            <h4>Shopping:</h4>
+                            <span class="shopping_price" id="shopping_price">$20</span>
+                        </div>
+                        <div class="details">
+                            <h4>Total:</h4>
+                            <span class="sum_of_Carts">$0</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="place_order">Place Older</button>
+                </div>
+                <div class="secound_info" id="checkoutInputs">
+                    <div class="form_input">
+                        <h2>Delivery Address</h2>
+                        <div class="info">
+                            <div class="box">
+                                <label for="email">Email <span>*</span></label>
+                                <input type="email" id="email" name="Email" placeholder="Enter Your Email.." required>
+                            </div>
+                            <div class="box">
+                                <label for="name">Name <span>*</span></label>
+                                <input type="text" id="name" name="Name" placeholder="Enter Your Name.." required>
+                            </div>
+                            <div class="box">
+                                <label for="address">Address <span>*</span></label>
+                                <input type="text" id="address" name="Address" placeholder="Enter Your Address.." required>
+                            </div>
+                            <div class="box">
+                                <label for="phone">Phone <span>*</span></label>
+                                <input type="text" id="phone" name="Phone" maxlength="11" placeholder="Enter Your Phone .." required>
+                                <span class="input-width" id="input-width"></span>
+                                <span class="num" id="numEvents">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code">
+                        <h2>Coupon Code</h2>
+                        <div class="box">
+                            <label for="password">Coupon Code <span>*</span></label>
+                            <input type="password" id="password" placeholder="Enter Your Coupon Code..">
+                            <button class="apply_coupon">Apply Coupon</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>    
+    </section>
+    <!-- End Checkout -->
+    <footer>
+        <div class="container">
+            <div class="box">
+                <div class="logo">
+                    <a href="#" class="logo_img">
+                        <img src=".//css/img/icon.png" alt="">
+                        <h4>Mohamed <br><span>Online Store</span></h4>
+                    </a>
+                </div>
+                <p>Let's Contact With Each Others</p>
+                <div class="email">
+                    <p>mohameddiaaahdahed@gmail.com</p>
+                    <h4>+20-1095382588</h4>
+                </div>
+                <div class="my_links">
+                    <a href="https://wa.me/qr/DDX27WTRPKH7I1">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.facebook.com/share/16C1MUWzJc/">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="https://github.com/m0hamed-Diaa">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mohamed-diaa-949313360?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app ">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="animation" style="display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 4px;">
+                    <h4 data-footer="Find">Find</h4>
+                    <h4 data-footer="It">It</h4>
+                    <h4 data-footer="Fast">Fast</h4>
+                </div>
+                <p>Laptops & Computers</p>
+                <p>Smart Phones & Tablets</p>
+                <p>TV & Audio</p>
+                <p>Appliances</p>
+                <p>Jewelry & Watches</p>
+            </div>
+            <div class="box">
+                <div class="animation" style="display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 4px;">
+                    <h4 data-footer="Quick">Quick</h4>
+                    <h4 data-footer="Links">Links</h4>
+                </div>
+                <p>Your Account</p>
+                <p>Returns & Exchanges</p>
+                <p>Shopping & Delivery</p>
+                <p>Estimated Delivery Time</p>
+                <p>Purchase History</p>
+            </div>
+            <div class="box">
+                <div class="animation" style="display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 4px;">
+                    <h4 data-footer="Service">Service</h4>
+                    <h4 data-footer="us">us</h4>
+                </div>
+                <p>Support Center</p>
+                <p>Term & Conditions</p>
+                <p>Privacy Policy</p>
+                <p>Help</p>
+                <p>FAQS</p>
+            </div>
+        </div> 
+        <div class="container">
+            <div class="bottom_footer">
+                <p>&copy; 2025 <span>Mohamed Diaa</span> All Right Reversed.</p>
+                <div class="cards"><img src=".//css/img/payment_method.png" alt="cards"></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src=".//js/script.js"></script>
+    <script src=".//js/submit_checkout.js"></script>
+>>>>>>> b1056237548f5fb9fe250f991869a698858d8afa
 </body>
