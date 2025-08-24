@@ -11,7 +11,7 @@ var swiper = new Swiper("#swiper", {
 });
 
 // Start Swiper Slide Product
-var swiper = new Swiper(".slide_product", {
+var swiper = new Swiper("#mySwiper", {
     slidesPerView: 4,
     spaceBetween: 20,
     autoplay: {
@@ -23,7 +23,6 @@ var swiper = new Swiper(".slide_product", {
     },
     loop: true,
     breakpoints: {
-        // لما العرض يكون من 0 الى 488 يساوي 
         0 : {
             slidesPerView: 1,
         },

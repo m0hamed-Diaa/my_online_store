@@ -140,7 +140,7 @@
     <!-- End Header -->
     <!-- Start Checkout -->
     <section class="checkout">
-        <form id="form_contact" method="post" action="https://script.google.com/macros/s/AKfycbzJSzH_49lgbquPt7RII5gCzsDoXLC3cNpMfQw0WA1IV9yz49icevVg60Es1aBy0GqH/exec">
+        <form id="form_contact" autocomplete="off" method="post" action="https://script.google.com/macros/s/AKfycbzJSzH_49lgbquPt7RII5gCzsDoXLC3cNpMfQw0WA1IV9yz49icevVg60Es1aBy0GqH/exec">
             <input type="hidden" id="all_items" name="Items">
             <input type="hidden" id="total_price" name="Total_Price">
             <input type="hidden" id="count_items" name="Count_Items">
@@ -172,19 +172,19 @@
                         <div class="info">
                             <div class="box">
                                 <label for="email">Email <span>*</span></label>
-                                <input type="email" id="email" name="Email" placeholder="Enter Your Email.." required>
+                                <input type="email" id="email" name="Email" autocomplete="off" placeholder="Enter Your Email.." required>
                             </div>
                             <div class="box">
                                 <label for="name">Name <span>*</span></label>
-                                <input type="text" id="name" name="Name" placeholder="Enter Your Name.." required>
+                                <input type="text" id="name" name="Name" autocomplete="off" placeholder="Enter Your Name.." required>
                             </div>
                             <div class="box">
                                 <label for="address">Address <span>*</span></label>
-                                <input type="text" id="address" name="Address" placeholder="Enter Your Address.." required>
+                                <input type="text" id="address" name="Address" autocomplete="off" placeholder="Enter Your Address.." required>
                             </div>
                             <div class="box">
                                 <label for="phone">Phone <span>*</span></label>
-                                <input type="text" id="phone" name="Phone" maxlength="11" placeholder="Enter Your Phone .." required>
+                                <input type="text" id="phone" name="Phone" autocomplete="off" maxlength="11" placeholder="Enter Your Phone .." required>
                                 <span class="input-width" id="input-width"></span>
                                 <span class="num" id="numEvents">0</span>
                             </div>

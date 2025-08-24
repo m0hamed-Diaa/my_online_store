@@ -326,17 +326,19 @@ header .bottom-header .container .login_signup .btn:hover i {
     header .bottom-header .container nav {
         flex-direction: column;
         align-items: center;
+        position: relative;
     }
     header .bottom-header .nav_links {
         position: fixed;
-        left: 66%;
-        top: 35%;
+        left: 20px;
+        top: 26.6%;
         flex-direction: column;
+        border: 1px solid var(--border_color);
         background-color: var(--bg_color);
         padding: 5px;
         z-index: 99999;
         transform: translateX(calc(-100% - 500px));
-        width: 30%;
+        width: calc(100% - 40px);
         transition: transform .2s linear;
     }
     header .bottom-header .nav_links.active {
@@ -350,8 +352,8 @@ header .bottom-header .container .login_signup .btn:hover i {
     }
     header .bottom-header .icon_nav_links {
         position: absolute;
-        top: 19%;
-        left: 84%;
+        top: 14px;
+        right: -50px;
         transform: translateX(-80%, -21%);
         cursor: pointer;
         color: var(--text_color);
