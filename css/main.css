@@ -331,7 +331,7 @@ header .bottom-header .container .login_signup .btn:hover i {
     header .bottom-header .nav_links {
         position: fixed;
         left: 20px;
-        top: 35%;
+        top: 40%;
         flex-direction: column;
         border: 1px solid var(--border_color);
         background-color: var(--bg_color);
@@ -850,8 +850,8 @@ footer .bottom_footer p span {
         justify-content: center;
     }
     footer .bottom_footer p {
-        text-align: center;
         font-size: 14px;
+        margin: auto;
     }
     footer .bottom_footer p span {
         font-weight: normal;
