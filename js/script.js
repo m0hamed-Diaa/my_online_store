@@ -25,6 +25,11 @@ category_btn.onclick = function (){
 let fa_bars = document.querySelector(".icon_nav_links");
 fa_bars.addEventListener("click", () => {
     document.querySelector(".nav_links").classList.toggle("active");
+    document.querySelectorAll(".nav_links li").forEach((li) => {
+        li.addEventListener("click", () => {
+            document.querySelector(".nav_links").classList.remove("active");
+        })
+    })
 })
 // ------------------
 document.querySelector("#colse_item_all_incart").onclick = open_cart_items;
